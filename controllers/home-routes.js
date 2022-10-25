@@ -1,23 +1,18 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { BlogPost, Comment } = require('../models');
 
-// GET all galleries for homepage
+// GET all blog posts for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
+    const dbBlogData = await BlogPost.findAll({
+      attributes: ['title', 'content', 'date_created']
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const blogposts = dbBlogData.map((posts) =>
+      posts.get({ plain: true })
     );
     res.render('homepage', {
-      galleries,
+      blogposts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -27,9 +22,9 @@ router.get('/', async (req, res) => {
 });
 
 // GET one gallery
-router.get('/gallery/:id', async (req, res) => {
+router.get('/blogposts/:id', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findByPk(req.params.id, {
+    const dbBlogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
           model: Painting,
@@ -45,8 +40,8 @@ router.get('/gallery/:id', async (req, res) => {
       ],
     });
 
-    const gallery = dbGalleryData.get({ plain: true });
-    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+    const blogpost = dbBlogData.get({ plain: true });
+    res.render('blogposts', { blogpost, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -21,6 +21,7 @@ BlogPost.init(
     },
     date_created: {
       type: DataTypes.DATE,
+      defaultValue: DataTypes.DATE,
       allowNull: false,
     },
     user_id: {
