@@ -25,6 +25,7 @@ Comment.init(
       references: {
         model: "user",
         key: "id",
+        unique: false,
       },
     },
     post_id: {
@@ -32,6 +33,7 @@ Comment.init(
       references: {
         model: "blogpost",
         key: "id",
+        unique: false,
       },
     },
   },
