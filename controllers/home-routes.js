@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth");
 router.get('/', async (req, res) => {
   try {
     const dbBlogData = await BlogPost.findAll({
-      attributes: ['title', 'content', 'date_created'],
+      attributes: ['id','title', 'content', 'date_created'],
       include: [ 
         {
           model: User,
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     );
     res.render('homepage', {
       blogposts,
-      loggedIn: req.session.loggedIn,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -33,8 +33,8 @@ router.get("/blogpost/:id", async (req, res) => {
     const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ["name"],
+          model: Comment,
+          attributes: ["comment", "date_posted"],
         },
       ],
     });
@@ -51,16 +51,16 @@ router.get("/blogpost/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(1, {
-      attributes: { exclude: ['password'] },
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
       include: [
-        { 
+        {
           model: BlogPost,
-          attributes: ['title','content','date_created']
-        }
+          attributes: ["title", "content", "date_created"],
+        },
       ],
     });
 

@@ -10,6 +10,7 @@ header, .project:not(:last-child) {
   color: #1b89bc;
   text-decoration: none;
   font-size: 100%;
+  margin-left: 20px;
 }
 
 .no-button:hover {
