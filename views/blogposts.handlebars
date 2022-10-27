@@ -1,9 +1,22 @@
 <section class="container">
   <h3 class="gallery-name">{{title}}</h3>
+  <h5 id="postNum"> {{ id }}</h5>
   <h4> Posted:{{format_date date_created}} </h4>
   <h5> {{ content }} </h5>
 </section>
-  <!-- If the user is logged in, render the gallery content -->
+  <div class="row">
+    <h3>Create a comment:</h3>
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="comment-cont">comment:</label>
+        <input class="form-input" type="text" id="comment-cont" name="comment-cont"/>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
   {{#if logged_in}}
   {{#each comments as |comment|}}
 <section class="flex-col justify-space-between text-center">
@@ -14,3 +27,5 @@
 {{else}}
 <a href="/login">You must login first to view the paintings</a>
 {{/if}}
+
+<script src="../js/blog.js"></script>
