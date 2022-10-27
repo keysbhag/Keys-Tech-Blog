@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get("/blogpost/:id", async (req, res) => {
+router.get("/blogpost/:id", withAuth, async (req, res) => {
   try {
     const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
@@ -63,12 +63,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
       include: [
         {
           model: BlogPost,
-          attributes: ["title", "content", "date_created"],
+          attributes: ["id","title", "content", "date_created"],
         },
       ],
     });
-
-    console.log(userData);
     
     const user = userData.get({ plain: true });
 
