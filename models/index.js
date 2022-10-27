@@ -7,20 +7,12 @@ BlogPost.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
-User.belongsToMany(BlogPost, {
-  through: {
-    model: Comment,
-    unique: false,
-  },
-  onDelete: "CASCADE",
-});
+User.hasMany(Comment, {
+  foreignKey: 'user_id'
+})
 
-BlogPost.belongsToMany(User, {
-  through: {
-    model: Comment,
-    unique: false,
-  },
-  onDelete: "CASCADE",
+Comment.belongsTo(User, {
+  foreignKey: "user_id",
 });
 
 User.hasMany(BlogPost,{

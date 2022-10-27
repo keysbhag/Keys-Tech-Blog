@@ -22,7 +22,7 @@ const blogdata = [
   {
     title: "bimtemps",
     content: "This is my pop pop blog post",
-    date_created: "October 21, 2022",
+    date_created: "October 22, 2022",
     user_id: 4,
   },
   {
