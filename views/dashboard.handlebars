@@ -31,12 +31,14 @@
         <p> {{ blogpost.content }} </p>
         <p>{{format_date blogpost.date_created}}</p>
       </div>
-      <div class="col-1 card">
-        <a role="button" class="btn btn-secondary" href="/editpost/{{blogpost.id}}">Edit</a>
-      </div>
-      <div class="col-1 card">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
-      </div>
+    <div class="col-2 display-flex flex-column card p-4">
+        <div class="display-flex">
+          <a role="button" class="btn btn-secondary edit" href="/editpost/{{blogpost.id}}">Edit</a>
+        </div>
+        <div class="display-flex mt-3">
+          <button class="btn btn-sm btn-danger delete" data-id="{{blogpost.id}}">DEL</button>
+        </div>
+    </div>    
     {{/each}}
   </div>
 </div>
