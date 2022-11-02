@@ -1,9 +1,12 @@
-<section class="container">
-  <h3 class="gallery-name">{{title}}</h3>
-  <h5 id="postNum"> {{ id }}</h5>
-  <h4> Posted:{{format_date date_created}} </h4>
-  <h5> {{ content }} </h5>
-  <h5>Written by: {{ user.username }}</h5>
+<h3>Post:</h3>
+<section class="container card p-3">
+  <h3 class="gallery-name">Title: {{title}}</h3>
+  <h4> Content: {{ content }} </h4>
+  <div class="display-flex detail">
+    <p id="postNum"> {{ id }}</p>
+    <p> Posted:{{format_date date_created}} </p>
+    <p>Written by: {{ user.username }}</p>
+  </div>
 </section>
   <div class="row">
     <h3>Create a comment:</h3>
@@ -20,14 +23,16 @@
 
   {{#if logged_in}}
   {{#each comments as |comment|}}
-<section class="flex-col justify-space-between text-center">
-    <h5> {{ user.username }}</h5>
-    <h5> {{ comment.comment }} </h5>
-    <h5> {{ format_date comment.date_posted }}</h5>
+<section class="flex-col justify-space-between card p-3">
+    <h4>{{ comment.comment }} </h4>
+    <div class="display-flex">
+      <p> <strong> Posted By: </strong> {{ user.username }}</p>
+      <p class="mx-2"> <strong> Date Posted: </strong> {{ format_date comment.date_posted }}</p>
+    </div>
 </section>
   {{/each}}
 {{else}}
-<a href="/login">You must login first to view the paintings</a>
+<a href="/login">You must login first to view the comments</a>
 {{/if}}
 
 <script src="../js/blog.js"></script>

@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<div class="row mt-4">
+<div class="container mt-4">
   <div class="row">
     <h3>Create a New Post:</h3>
 
@@ -23,23 +23,20 @@
     </form>
   </div>
 
-  <div class="row post-list">
-    <h3>Current Posts</h3>
-
+  <h3>Current Posts:</h3>
+  <div class="row post-list mb-4 mt-4">
     {{#each blogposts as |blogpost|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
+      <div class="col-10 card">
         <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
         <p> {{ blogpost.content }} </p>
         <p>{{format_date blogpost.date_created}}</p>
       </div>
-      <div class="col-md2">
+      <div class="col-1 card">
         <a role="button" class="btn btn-secondary" href="/editpost/{{blogpost.id}}">Edit</a>
       </div>
-      <div class="col-md-2">
+      <div class="col-1 card">
         <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
       </div>
-    </div>
     {{/each}}
   </div>
 </div>

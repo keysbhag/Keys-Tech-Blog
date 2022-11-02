@@ -1,18 +1,16 @@
 {{#each blogposts as |blogpost| }}
 <div class="row mb-4 project">
-  <div class="col-md-5">
+  <div class="col-md-4">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}  {{blogpost.id}}</a>
+      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
     </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_date blogpost.date_created}}</span>
-    </p>
+    <div class="display-flex flex-row">
+      <p class="fs-2">Posted On: </p>
+      <p class="ml-1 fs-2">{{format_date blogpost.date_created}}</p>
+    </div>
     <p>Created by {{ user.username }}</p>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-8">
     <p>
       {{ blogpost.content }}
     </p>
