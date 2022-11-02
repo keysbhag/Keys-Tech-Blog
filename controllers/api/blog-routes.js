@@ -15,6 +15,36 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+router.put("/:id", withAuth, async (req, res) => {
+  console.log("hello");
+  console.log(req.body.title);
+  console.log(req.body.content);
+  console.log(req.params.id);
+  try{
+    const change = {
+      title: req.body.title,
+      content: req.body.content,
+
+    };
+    console.log(change);
+    const blogData = await BlogPost.update(change, {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: "No Post found with this id!" });
+      return;
+    }
+
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     console.log(req.params.id)
