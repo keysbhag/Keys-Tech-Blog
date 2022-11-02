@@ -9,6 +9,8 @@ The motivation for this project was to make a website for developers to allow th
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
+* [Demo](#demo)
+* [Live Deployed Link](#live-deployed-link)
 * [License](#license)
 * [Contribute](#contribute)
 * [Testing](#testing)
@@ -33,10 +35,17 @@ Handlebars.JS
 Sequelize
 
 ## Demo
+Here are some Demo pictures for the site!
 
+![Homepage](./public/images/challenge14.2.png)
+
+![Dashboard](./public/images/challenge14.1.png)
+
+![Comments](./public/images/challenge14.3.png)
 
 ## Live Deployed Link
-
+ 
+Here is the link to the deployed website! https://keys-tech-blog.herokuapp.com/
 
 ## License
 MIT License, Here is the link for more details: https://opensource.org/licenses/MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)] 
