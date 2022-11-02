@@ -2,32 +2,32 @@ const { BlogPost } = require('../models');
 
 const blogdata = [
   {
-    title: "Printemps",
-    content: "This is my cool blog post",
+    title: "Flexbox",
+    content: "Flexbox is great! use it!",
     date_created: "October 21, 2022",
     user_id: 1,
   },
   {
-    title: "Printps",
-    content: "This is my dope blog post",
+    title: "Just posted my app on heroku",
+    content: "I made a cool app",
     date_created: "October 21, 2022",
     user_id: 2,
   },
   {
-    title: "colememps",
-    content: "This is my trrir blog post",
+    title: "Whats the best node library",
+    content: "Someone tell me!",
     date_created: "October 21, 2022",
     user_id: 3,
   },
   {
-    title: "bimtemps",
-    content: "This is my pop pop blog post",
+    title: "I need some help in the backend",
+    content: "Any developers out there that can code backend?",
     date_created: "October 22, 2022",
     user_id: 4,
   },
   {
-    title: "Pmps",
-    content: "This is my boom boom blog post",
+    title: "I love bootstrap",
+    content: "Boot Strap is awesome i love to use it",
     date_created: "October 21, 2022",
     user_id: 5,
   },
