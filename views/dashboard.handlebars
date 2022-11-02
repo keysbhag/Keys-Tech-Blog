@@ -33,7 +33,10 @@
         <p> {{ blogpost.content }} </p>
         <p>{{format_date blogpost.date_created}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md2">
+        <a role="button" class="btn btn-secondary" href="/editpost/{{blogpost.id}}">Edit</a>
+      </div>
+      <div class="col-md-2">
         <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
       </div>
     </div>

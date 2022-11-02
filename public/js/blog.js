@@ -1,6 +1,5 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-  console.log("yesssss")
   const comment = document.querySelector('#comment-cont').value.trim();
   const post_id = parseInt(document.querySelector('#postNum').innerHTML);
   if (comment) {

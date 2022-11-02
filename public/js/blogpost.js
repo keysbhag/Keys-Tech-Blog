@@ -41,6 +41,7 @@ document
   .querySelector(".new-post-form")
   .addEventListener("submit", newPostHandler);
 
-document
-  .querySelector(".post-list")
-  .addEventListener("click", delButtonHandler);
+
+  [...document.querySelectorAll(".post-list")].forEach((el) =>
+    el.addEventListener("click", delButtonHandler)
+  );
